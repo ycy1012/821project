@@ -47,7 +47,7 @@ These features can be used for:
 
 | Member Name | Role |
 |-------------|------|
-| Chenyao Yu  | Feature extraction modules, deep learning, CLI |
+| Chenyao Yu  | Feature extraction modules, CLI |
 | Binqian Chai| Preprocessing, traditional features, visualization |
 | Together    | Testing, GitHub workflow, documentation |
 
