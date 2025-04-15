@@ -41,7 +41,7 @@ These features can be used for:
 ### Outputs
 
 - `.csv` files with per-image feature vectors
-- `.png` visualizations (e.g., CAM overlays, t-SNE plots)
+- `.png` visualizations (e.g., PCA/t-SNE plots)
 
 ## Team Members & Roles
 
