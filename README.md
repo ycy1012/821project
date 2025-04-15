@@ -6,23 +6,33 @@
 
 ## Project Goal
 
-The primary goal of ChestX-FeatLib is to support efficient and reproducible feature extraction from large-scale medical images. The toolkit will provide traditional image features (e.g., texture, edge-based descriptors) as well as deep-learning-derived embeddings. These features can be used for diagnostic support, image clustering, or visualization tasks.
+The primary goal of ChestX-FeatLib is to support **efficient, reproducible extraction and visualization of medical image features**, without requiring deep learning model training. Specifically, we extract:
+
+- Traditional handcrafted features (e.g., texture, edges)
+- Deep visual embeddings from **pretrained CNNs** (e.g., ResNet)
+
+These features can be used for:
+- Unsupervised visualization (e.g., t-SNE, PCA)
+- Exploratory disease pattern comparison
+- Preparing inputs for downstream tasks (clustering, ML, etc.)
 
 ## Architecture Overview
 
 ### Components
 
-- `preprocessing/`
-  - Image normalization and enhancement
-  - Resize, grayscale conversion, and CLAHE
-- `features/`
-  - Traditional features (GLCM, edge histograms)
-  - Deep features from pretrained CNNs
-- `visualization/`
-  - Feature map overlays
-  - t-SNE / PCA 2D projections
-- `cli/`
-  - Command-line scripts for batch processing
+- `preprocessing/`  
+  - Image resizing, grayscale conversion, normalization  
+  - CLAHE for contrast enhancement  
+
+- `features/`  
+  - Texture features: GLCM, edge histograms  
+  - Deep features: embeddings from pretrained CNNs (no model training)  
+
+- `visualization/`  
+  - Feature maps, t-SNE plots, cluster heatmaps  
+
+- `cli/`  
+  - Command-line scripts for batch processing and feature extraction  
  
 ### Inputs
 
