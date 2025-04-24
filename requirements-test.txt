@@ -1,0 +1,15 @@
+# Test framework
+pytest
+coverage
+
+# Type checking and linting tools
+mypy
+ruff
+
+# Machine learning and image processing
+numpy
+pandas
+torch
+torchvision
+opencv-python
+scikit-image
