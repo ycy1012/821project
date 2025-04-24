@@ -54,4 +54,3 @@ def preprocess_array(img: np.ndarray, size=(224, 224)) -> np.ndarray:
     enhanced = clahe.apply(resized)
     norm = enhanced.astype(np.float32) / 255.0
     return norm
-
