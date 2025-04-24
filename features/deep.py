@@ -11,18 +11,22 @@ _model = torch.nn.Sequential(*list(_resnet.children())[:-1])  # remove FC layer
 _model.eval()
 
 # Define input transform (for single-channel gray images → 3-channel normalized tensor)
-_transform = transforms.Compose([
-    transforms.Resize((224, 224)),
-    transforms.ToTensor(),  # Converts [H, W] or PIL Image to [C, H, W]
-    transforms.Lambda(lambda x: x.repeat(3, 1, 1)),  # Convert grayscale to 3 channels
-    transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                         std=[0.229, 0.224, 0.225])
-])
+_transform = transforms.Compose(
+    [
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),  # Converts [H, W] or PIL Image to [C, H, W]
+        transforms.Lambda(
+            lambda x: x.repeat(3, 1, 1)
+        ),  # Convert grayscale to 3 channels
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+    ]
+)
+
 
 def extract_deep_features(img: np.ndarray) -> np.ndarray:
     """
     Extract deep CNN embedding (e.g., 512-d) from a preprocessed grayscale image.
-    
+
     Parameters:
         img (np.ndarray): 2D float32 grayscale image, shape (H, W), values in [0, 1]
 
@@ -41,6 +45,6 @@ def extract_deep_features(img: np.ndarray) -> np.ndarray:
     # Run through model
     with torch.no_grad():
         output = _model(input_tensor)  # shape: [1, 512, 1, 1]
-        embedding = output.squeeze().cpu().numpy()   # shape: (512,)
+        embedding = output.squeeze().cpu().numpy()  # shape: (512,)
 
     return embedding

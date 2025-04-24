@@ -6,4 +6,3 @@ features = extract_handcrafted_features(img)
 
 print("Feature vector shape:", features.shape)
 print("Features:", features)
-
