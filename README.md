@@ -94,8 +94,6 @@ pip install -r requirements-test.txt
 
 > You will also need `input_images/` to contain `.png` grayscale chest X-ray files (224x224 preferred), and an optional `selected_metadata.csv` file.
 
----
-
 ### Expected Input Format
 
 - **Images**: grayscale `.png` files inside `input_images/`
@@ -103,8 +101,6 @@ pip install -r requirements-test.txt
   - Format: single-channel grayscale expected
 - **Metadata (optional)**: `selected_metadata.csv`
   - Used for organizing or linking clinical labels to visualizations (not required for feature extraction)
-
----
 
 ### Example Usage
 
@@ -117,8 +113,6 @@ python -m cli.run_pipline --input input_images --output output --features all
 - `--features handcrafted`: texture + edge features (7D)
 - `--features deep`: 512D ResNet embeddings
 - `--features all`: generate both (two CSVs)
-
----
 
 ### Example Outputs
 
@@ -157,8 +151,6 @@ pip install -r requirements.txt
 pip install -r requirements-test.txt
 ```
 
----
-
 ### Local Testing
 
 Run all tests:
@@ -190,6 +182,8 @@ mypy .
 | Chenyao Yu  | Preprocessing, Feature extraction modules, Visualization Examples |
 | Binqian Chai| CLI, Documentation |
 | Together    | Testing, GitHub workflow, documentation |
+
+---
 
 ## Dataset Reference
 
