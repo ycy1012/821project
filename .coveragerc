@@ -1,0 +1,7 @@
+[run]
+source = cli,features,output
+branch = True
+
+[report]
+omit =
+    config-*.py
