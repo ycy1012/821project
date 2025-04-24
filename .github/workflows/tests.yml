@@ -29,7 +29,7 @@ jobs:
       run: |
         if [ -d tests/ ]; then
           code=$(
-            coverage run --source=src/ -m pytest tests/ > test_report.txt
+            coverage run --source=cli,features,output -m pytest tests/ > test_report.txt
             echo $?
           )
           echo $code > exit_code.txt
