@@ -13,3 +13,5 @@ torch
 torchvision
 opencv-python
 scikit-image
+
+git+https://github.com/ycy1012/821project.git@main
