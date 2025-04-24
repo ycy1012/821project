@@ -2,7 +2,7 @@
 
 # ChestX-FeatLib
 
-**ChestX-FeatLib** is a Python toolkit for extracting and analyzing features from chest X-ray images. The toolkit is built around the NIH Chest X-ray14 dataset. Designed for the NIH ChestX-ray14 dataset, this library provides reproducible pipelines for medical image preprocessing and feature extraction using both traditional and deep learning-based methods — without the need to train new models. It is designed to enable downstream applications such as disease prediction, visualization, and clustering.
+**ChestX-FeatLib** is a Python toolkit for extracting and analyzing features from grayscale chest X-ray images. Built around the NIH ChestX-ray14 dataset, it provides reproducible pipelines for preprocessing and feature extraction using both traditional and pretrained deep learning methods — without the need to train new models. It is designed to enable downstream applications such as disease prediction, visualization, and clustering.
 
 ---
 

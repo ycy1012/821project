@@ -33,3 +33,25 @@ def preprocess_image(image_path: str, size=(224, 224)) -> np.ndarray:
     img_norm = img_clahe.astype(np.float32) / 255.0
 
     return img_norm
+
+
+def preprocess_array(img: np.ndarray, size=(224, 224)) -> np.ndarray:
+    """
+    Preprocess a grayscale chest X-ray image from a NumPy array:
+    1. Resize to target size
+    2. Apply CLAHE (contrast enhancement)
+    3. Normalize pixel values to [0, 1]
+
+    Parameters:
+        img (np.ndarray): Input grayscale image as a 2D NumPy array
+        size (tuple): Target image size as (width, height). Default: (224, 224)
+
+    Returns:
+        np.ndarray: Preprocessed image of shape (size[1], size[0]), dtype float32
+    """
+    resized = cv2.resize(img, size)
+    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+    enhanced = clahe.apply(resized)
+    norm = enhanced.astype(np.float32) / 255.0
+    return norm
+
