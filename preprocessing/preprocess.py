@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-from pathlib import Path
 
 def preprocess_image(image_path: str, size=(224, 224)) -> np.ndarray:
     """
