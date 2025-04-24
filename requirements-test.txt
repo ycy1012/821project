@@ -1,17 +1,19 @@
-# Test framework
+# Core Libraries
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+scikit-image
+opencv-python
+Pillow
+torch
+torchvision
+
+# Testing & Linting
 pytest
 coverage
 
-# Type checking and linting tools
+# Type Checking & Linting
 mypy
 ruff
-
-# Machine learning and image processing
-numpy
-pandas
-torch
-torchvision
-opencv-python
-scikit-image
-
-git+https://github.com/ycy1012/821project.git@main
