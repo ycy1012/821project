@@ -21,4 +21,3 @@ ruff
 # Type Stubs for mypy
 pandas-stubs
 types-seaborn
-scikit-learn-stubs
