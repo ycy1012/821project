@@ -1,4 +1,4 @@
-# Core Libraries
+# Core Scientific Libraries
 numpy
 pandas
 matplotlib
@@ -10,10 +10,15 @@ Pillow
 torch
 torchvision
 
-# Testing & Linting
+# Testing
 pytest
 coverage
 
-# Type Checking & Linting
+# Linting & Type Checking
 mypy
 ruff
+
+# Type Stubs for mypy
+pandas-stubs
+types-seaborn
+scikit-learn-stubs
