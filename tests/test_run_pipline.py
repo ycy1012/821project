@@ -4,6 +4,7 @@ import pandas as pd
 from cli import run_pipline
 import pytest
 
+
 def prepare_sample_input(sample_dir, input_dir, num_files=5):
     """
     Prepare a sample subset of input images for testing.
@@ -17,12 +18,15 @@ def prepare_sample_input(sample_dir, input_dir, num_files=5):
         list: Filenames of the copied sample images.
     """
     os.makedirs(sample_dir, exist_ok=True)
-    sample_files = sorted([f for f in os.listdir(input_dir) if f.endswith(".png")])[:num_files]
+    sample_files = sorted([f for f in os.listdir(input_dir) if f.endswith(".png")])[
+        :num_files
+    ]
     for fname in sample_files:
         src = os.path.join(input_dir, fname)
         dst = os.path.join(sample_dir, fname)
         shutil.copy(src, dst)
     return sample_files
+
 
 def validate_csv(csv_path, expected_files, expected_feat_dim):
     """
@@ -45,6 +49,7 @@ def validate_csv(csv_path, expected_files, expected_feat_dim):
     assert list(df["filename"]) == expected_files, (
         f"{csv_path}: filenames do not match."
     )
+
 
 def test_run_pipeline_handcrafted_and_deep():
     """
@@ -89,6 +94,7 @@ def test_run_pipeline_handcrafted_and_deep():
     # Clean up output files after test
     shutil.rmtree(output_dir)
 
+
 def test_run_pipeline_only_handcrafted():
     """
     Test that only handcrafted features are extracted and saved correctly.
@@ -116,6 +122,7 @@ def test_run_pipeline_only_handcrafted():
     )
 
     shutil.rmtree(output_dir)
+
 
 def test_run_pipeline_only_deep():
     """
@@ -145,6 +152,7 @@ def test_run_pipeline_only_deep():
 
     shutil.rmtree(output_dir)
 
+
 def test_extract_and_save_runtimeerror_on_empty_input():
     """
     Test that RuntimeError is raised when input images are invalid or missing.
@@ -157,5 +165,5 @@ def test_extract_and_save_runtimeerror_on_empty_input():
         run_pipline.extract_and_save(
             features_type="handcrafted",
             image_paths=[bad_image_path],
-            output_path=output_csv
+            output_path=output_csv,
         )

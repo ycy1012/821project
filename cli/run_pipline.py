@@ -5,6 +5,7 @@ from preprocessing.preprocess import preprocess_image
 from features.handcrafted import extract_handcrafted_features
 from features.deep import extract_deep_features
 
+
 def extract_and_save(features_type: str, image_paths: list, output_path: str):
     """
     Extract features from images and save them into a CSV file.
@@ -32,7 +33,9 @@ def extract_and_save(features_type: str, image_paths: list, output_path: str):
 
     # Ensure at least one feature vector was extracted
     if not results:
-        raise RuntimeError(f"No features extracted for {features_type} — check logs above.")
+        raise RuntimeError(
+            f"No features extracted for {features_type} — check logs above."
+        )
 
     # Create a DataFrame with features and save to CSV
     df = pd.DataFrame(
@@ -43,6 +46,7 @@ def extract_and_save(features_type: str, image_paths: list, output_path: str):
     df.to_csv(output_path, index=False)
     print(f"[INFO] Saved {features_type} features to {output_path}")
 
+
 def main():
     """
     Command-line interface (CLI) entry point for ChestX-FeatLib.
@@ -51,7 +55,9 @@ def main():
     """
     parser = argparse.ArgumentParser(description="ChestX-FeatLib CLI")
     parser.add_argument("--input", required=True, help="Path to input image folder")
-    parser.add_argument("--output", required=True, help="Output directory to save feature CSVs")
+    parser.add_argument(
+        "--output", required=True, help="Output directory to save feature CSVs"
+    )
     parser.add_argument(
         "--features",
         choices=["handcrafted", "deep", "all"],
@@ -81,6 +87,7 @@ def main():
             image_paths,
             os.path.join(args.output, "features_deep.csv"),
         )
+
 
 if __name__ == "__main__":
     main()
