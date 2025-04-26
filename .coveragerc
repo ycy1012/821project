@@ -1,7 +1,12 @@
 [run]
-source = cli,features,output
+source =
+    cli
+    features
+    output
+    preprocessing
 branch = True
 
 [report]
 omit =
+    config.py
     config-*.py
